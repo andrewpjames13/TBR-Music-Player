@@ -13,7 +13,7 @@
     <div class="left-border"></div>
     <nav id="music-menu" class="menu">
       <button class="trigger"></button>
-      <ul class="menu__items">
+      <ul class="menu-controls">
         <li><a href="https://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-fw fa-pause"></i></a></li>
         <li><a href="http://feeds2.feedburner.com/tympanus"><i class="fa fa-fw fa-random"></i></a></li>
         <li><a href="http://www.twitter.com/codrops"><i class="fa fa-fw fa-forward"></i></a></li>
@@ -31,10 +31,10 @@
         $('.trigger').on('click', function(e){
           if( menuOpen == false){
             menuOpen = true;
-            $('#music-menu').addClass("menu--open");
+            $('#music-menu').addClass("menu-open");
           } else {
             menuOpen = false;
-            $('#music-menu').removeClass("menu--open");
+            $('#music-menu').removeClass("menu-open");
           }
         });
       }

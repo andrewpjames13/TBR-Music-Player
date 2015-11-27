@@ -111,12 +111,12 @@ button{
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
-.menu__items {
+.menu-controls {
 	position: fixed;
   bottom: 0;
 }
 
-.menu__items li {
+.menu-controls li {
 	width: 75px;
 	height: 75px;
   border-radius: 50%;
@@ -128,17 +128,17 @@ button{
 	transition: transform 0.25s ease-out;
 }
 
-.menu.menu--open .menu__items li:first-child {
+.menu.menu-open .menu-controls li:first-child {
 	-webkit-transform: scale3d(1, 1, 1) translate3d(34.14px, -239.14px, 0);
 	transform: scale3d(1, 1, 1) translate3d(34.14px, -239.14px, 0);
 }
 
-.menu.menu--open .menu__items li:nth-child(2) {
+.menu.menu-open .menu-controls li:nth-child(2) {
 	-webkit-transform: scale3d(1, 1, 1) translate3d(145.14px, -211.14px, 0);
 	transform: scale3d(1, 1, 1) translate3d(145.14px, -211.14px, 0);
 }
 
-.menu.menu--open .menu__items li:nth-child(3) {
+.menu.menu-open .menu-controls li:nth-child(3) {
 	-webkit-transform: scale3d(1, 1, 1) translate3d(169px, -105px, 0);
 	transform: scale3d(1, 1, 1) translate3d(169px, -105px, 0);
 }
