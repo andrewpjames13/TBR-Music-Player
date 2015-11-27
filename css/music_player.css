@@ -54,6 +54,10 @@ body{
   background-color: #272928;
 }
 
+button{
+  cursor: pointer;
+}
+
 .top-border, .right-border, .left-border, .bottom-border{
   background-color: white;
   position: fixed;
@@ -116,13 +120,6 @@ body{
 .menu__items {
 	position: fixed;
   bottom: 0;
-	/*width: 100%;
-	height: 100%;
-	top: 0;
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	z-index: 5;*/
 }
 
 .menu__items li {
@@ -131,9 +128,8 @@ body{
   border-radius: 50%;
   border: 4px solid #a29060;
   position: absolute;
-	/*z-index: -1;*/
-	-webkit-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
+	/*-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;*/
 	-webkit-transform: scale3d(0.5, 0.5, 1);
 	transform: scale3d(0.5, 0.5, 1);
 	-webkit-transition: -webkit-transform 0.25s ease-out;

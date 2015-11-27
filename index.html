@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>TBR Music Player</title>
     <link rel="stylesheet" href="css/music_player.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   </head>
   <body>
     <div class="top-border"></div>
     <div class="right-border"></div>
     <div class="bottom-border"></div>
     <div class="left-border"></div>
-    <nav id="music-menu" class="menu menu--open">
+    <nav id="music-menu" class="menu">
       <button class="trigger"></button>
       <ul class="menu__items">
         <li><a href="https://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-fw fa-pause"></i></a></li>
@@ -20,4 +21,27 @@
     </nav>
     <!-- <div class="test"></div> -->
   </body>
+  <script>
+    "use strict";
+    
+    $(document).ready(function(){
+
+      var menuOpen = false;
+      var toggleMenu = function(){
+
+        $('.trigger').on('click', function(e){
+          if( menuOpen == false){
+            menuOpen = true;
+            $('#music-menu').addClass("menu--open");
+          } else {
+            menuOpen = false;
+            $('#music-menu').removeClass("menu--open");
+          }
+        });
+      }
+
+      toggleMenu();
+
+    });
+  </script>
 </html>
