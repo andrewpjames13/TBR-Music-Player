@@ -30,20 +30,26 @@
       	 viewBox="0 0 130.6 127.2" enable-background="new 0 0 130.6 127.2" xml:space="preserve">
         <path id="pause-icon" fill="#A29060" d="M42.2,25.2h-2.8v-9.5h2.8V25.2z M46.7,15.7h-2.8v9.5h2.8V15.7z"/>
         <path id="play-icon"fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M55.1,127.8c5-6.9,8-15.3,8-24.5
-	        C63.1,80.5,44.6,62,21.8,62c-8.3,0-16,2.4-22.5,6.6"/>
+	      C63.1,80.5,44.6,62,21.8,62c-8.3,0-16,2.4-22.5,6.6"/>
         <path id="shuffle-icon_3_" fill="#A29060" d="M87.8,34.8H86v-1.4h1.8c1.3,0,2.6,0.5,3.5,1.5c0,0.1-0.8,1.2-0.8,1.2C89.9,35.3,88.9,34.8,87.8,34.8z
-      		 M100.3,40.2l-3.1-1.9v1.3h-1c-1.1,0-2.1-0.5-2.8-1.4c0,0-0.7,1.2-0.8,1.2c0.9,1,2.2,1.5,3.5,1.5h1l0,1.1L100.3,40.2z M100.3,34.2
-      		l-3.1-1.9l0,1.1h-1c-1.6,0-3.2,0.8-4.1,2.3l-1.4,2.2c-0.6,1-1.7,1.6-2.9,1.6H86v1.4h1.8c1.6,0,3.2-0.8,4.1-2.3l1.4-2.2
-      		c0.6-1,1.7-1.6,2.9-1.6h1l0,1.3L100.3,34.2z"/>
+      	M100.3,40.2l-3.1-1.9v1.3h-1c-1.1,0-2.1-0.5-2.8-1.4c0,0-0.7,1.2-0.8,1.2c0.9,1,2.2,1.5,3.5,1.5h1l0,1.1L100.3,40.2z M100.3,34.2
+      	l-3.1-1.9l0,1.1h-1c-1.6,0-3.2,0.8-4.1,2.3l-1.4,2.2c-0.6,1-1.7,1.6-2.9,1.6H86v1.4h1.8c1.6,0,3.2-0.8,4.1-2.3l1.4-2.2
+      	c0.6-1,1.7-1.6,2.9-1.6h1l0,1.3L100.3,34.2z"/>
         <polygon id="next-icon" fill="#A29060" points="111.4,88.5 111.4,85 105.4,88.5 105.4,78.8 111.4,82.3 111.4,78.8 119.8,83.6 		"/>
         <path fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M55.1,127.8c5-6.9,8-15.3,8-24.5
-        	C63.1,80.5,44.6,62,21.8,62c-8.3,0-16,2.4-22.5,6.6"/>
-        <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="31.4" y1="64.4" x2="38.4" y2="38.2"/>
+        C63.1,80.5,44.6,62,21.8,62c-8.3,0-16,2.4-22.5,6.6"/>
+        <path fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M31.4,64.4l7-26.2l0.1-0.4
+        C48.3,40,58,33.9,60.2,24.2S56.3,4.8,46.6,2.6S27.2,6.4,25,16.2s3.9,19.4,13.6,21.6"/>
+        <path fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M51.4,76.6l26.9-26.1l1-0.9
+        c6.8,7.3,18.2,7.7,25.5,0.9c7.3-6.8,7.7-18.2,0.9-25.5S87.5,17.2,80.2,24c-7.3,6.8-7.7,18.2-0.9,25.5"/>
+        <path fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M61.5,96.3L92,88.5l1.2-0.3
+        c2.8,9.6,12.8,15.1,22.4,12.3s15.1-12.8,12.3-22.4s-12.8-15.1-22.4-12.3S90.4,78.6,93.2,88.2"/>
+        <!-- <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="31.4" y1="64.4" x2="38.4" y2="38.2"/>
         <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="52.4" y1="75.6" x2="79.3" y2="49.5"/>
         <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="62.5" y1="96.3" x2="93.1" y2="88.2"/>
         <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="42.6" cy="20.2" r="18.1"/>
         <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="92.6" cy="37.2" r="18.1"/>
-        <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="110.6" cy="83.2" r="18.1"/>
+        <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="110.6" cy="83.2" r="18.1"/> -->
       </svg>
     </nav>
 
@@ -64,7 +70,7 @@
     var toggleMenu = function(){
         if( menuOpen == false){
           menuOpen = true;
-          menuCircuit.reset().play(20);
+          menuCircuit.reset().play(15);
         } else {
           menuOpen = false;
           menuCircuit.play(-20);
