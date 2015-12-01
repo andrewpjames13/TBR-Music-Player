@@ -3,93 +3,73 @@
   <head>
     <meta charset="utf-8">
     <title>TBR Music Player</title>
-    <link rel="stylesheet" href="css/music_player.css" media="screen" title="no title" charset="utf-8">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="css/music_player_outline.css" media="screen" title="no title" charset="utf-8">
+    <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+    <script type="text/javascript" src="bower_components/vivus/dist/vivus.min.js"></script>
   </head>
   <body>
     <div class="top-border"></div>
     <div class="right-border"></div>
     <div class="bottom-border"></div>
     <div class="left-border"></div>
-    <nav id="music-menu" class="menu">
-      <button class="trigger">
-        <svg viewBox="0 0 16.8 21.4">
-        <g>
-        	<rect x="0" y="5.9" fill="#A29060" width="4.6" height="15.5"/>
-        	<rect x="6.1" y="0" fill="#A29060" width="4.6" height="21.4"/>
-        	<rect x="12.3" y="10.7" fill="#A29060" width="4.6" height="10.7"/>
-        </g>
-        </svg>
-      </button>
-      <ul class="menu-controls">
-        <li><a href="https://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-fw fa-pause"></i></a></li>
-        <li><a href="#">
-          <svg viewBox="0 0 16.8 11.5">
-          <path id="shuffle-icon_1_" fill="#A29060" d="M2.1,3H0V1.3h2.1c1.6,0,3.1,0.6,4.2,1.8c0,0.1-0.9,1.5-0.9,1.5C4.6,3.6,3.4,3,2.1,3z
-          	 M16.8,9.3l-3.6-2.3v1.5H12c-1.3,0-2.5-0.6-3.3-1.6c0,0-0.9,1.4-0.9,1.5c1.1,1.2,2.6,1.8,4.2,1.8h1.2l0,1.4L16.8,9.3z M16.8,2.2
-          	L13.2,0l0,1.4H12c-1.9,0-3.8,1-4.8,2.7L5.6,6.6c-0.7,1.2-2,1.9-3.4,1.9H0v1.6h2.1c1.9,0,3.8-1,4.8-2.7l1.6-2.6C9.3,3.7,10.6,3,12,3
-          	h1.2l0,1.5L16.8,2.2z"/>
+
+    <nav class="menu">
+      <div class="sound-bar">
+        <button class="trigger" onclick="toggleMenu()">
+          <svg viewBox="0 0 16.8 21.4">
+          <g>
+          	<rect x="0" y="5.9" fill="#A29060" width="4.6" height="15.5"/>
+          	<rect x="6.1" y="0" fill="#A29060" width="4.6" height="21.4"/>
+          	<rect x="12.3" y="10.7" fill="#A29060" width="4.6" height="10.7"/>
+          </g>
           </svg>
-        </a></li>
-        <li><a href="http://www.twitter.com/codrops"><i class="fa fa-fw fa-forward"></i></a></li>
-      </ul>
+        </button>
+      </div>
+
+      <svg version="1.1" id="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      	 viewBox="0 0 130.6 127.2" enable-background="new 0 0 130.6 127.2" xml:space="preserve">
+        <path id="pause-icon" fill="#A29060" d="M42.2,25.2h-2.8v-9.5h2.8V25.2z M46.7,15.7h-2.8v9.5h2.8V15.7z"/>
+        <path id="play-icon"fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M55.1,127.8c5-6.9,8-15.3,8-24.5
+	        C63.1,80.5,44.6,62,21.8,62c-8.3,0-16,2.4-22.5,6.6"/>
+        <path id="shuffle-icon_3_" fill="#A29060" d="M87.8,34.8H86v-1.4h1.8c1.3,0,2.6,0.5,3.5,1.5c0,0.1-0.8,1.2-0.8,1.2C89.9,35.3,88.9,34.8,87.8,34.8z
+      		 M100.3,40.2l-3.1-1.9v1.3h-1c-1.1,0-2.1-0.5-2.8-1.4c0,0-0.7,1.2-0.8,1.2c0.9,1,2.2,1.5,3.5,1.5h1l0,1.1L100.3,40.2z M100.3,34.2
+      		l-3.1-1.9l0,1.1h-1c-1.6,0-3.2,0.8-4.1,2.3l-1.4,2.2c-0.6,1-1.7,1.6-2.9,1.6H86v1.4h1.8c1.6,0,3.2-0.8,4.1-2.3l1.4-2.2
+      		c0.6-1,1.7-1.6,2.9-1.6h1l0,1.3L100.3,34.2z"/>
+        <polygon id="next-icon" fill="#A29060" points="111.4,88.5 111.4,85 105.4,88.5 105.4,78.8 111.4,82.3 111.4,78.8 119.8,83.6 		"/>
+        <path fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" d="M55.1,127.8c5-6.9,8-15.3,8-24.5
+        	C63.1,80.5,44.6,62,21.8,62c-8.3,0-16,2.4-22.5,6.6"/>
+        <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="31.4" y1="64.4" x2="38.4" y2="38.2"/>
+        <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="52.4" y1="75.6" x2="79.3" y2="49.5"/>
+        <line fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" x1="62.5" y1="96.3" x2="93.1" y2="88.2"/>
+        <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="42.6" cy="20.2" r="18.1"/>
+        <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="92.6" cy="37.2" r="18.1"/>
+        <circle fill="none" stroke="#A29060" stroke-width="3" stroke-miterlimit="10" cx="110.6" cy="83.2" r="18.1"/>
+      </svg>
     </nav>
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	   viewBox="0 0 128.5 124.5" enable-background="new 0 0 128.5 124.5" xml:space="preserve">
-      <g id="sound-bars">
-      	<g><rect x="24.2" y="85.6" fill="#A29060" width="4" height="13.7"/></g>
-      	<g><rect x="29.6" y="80.4" fill="#A29060" width="4" height="18.8"/></g>
-      	<g><rect x="35" y="89.8" fill="#A29060" width="4" height="9.4"/></g>
-      </g>
-      <g id="controls">
-      	<path fill="#A29060" d="M110.3,63c-10,0-18.2,8.1-18.2,18.2c0,1.1,0.1,2.1,0.3,3.1l-28.2,7.6c-1.2-7.4-4.4-14.2-9-19.7l25-24.5
-      		c3.2,2.8,7.4,4.6,12,4.6c10,0,18.1-8.1,18.1-18.2c0-10-8.1-18.2-18.1-18.2s-18.2,8.1-18.2,18.2c0,4.3,1.5,8.3,4,11.4L53.2,70
-      		c-5.1-5.3-11.7-9.1-19-11l6-22.8c0.7,0.1,1.5,0.1,2.2,0.1c10,0,18.1-8.1,18.1-18.2C60.5,8.1,52.3,0,42.3,0S24.2,8.1,24.2,18.2
-      		c0,8.2,5.5,15.2,13,17.4l-6,22.8c-2.3-0.4-4.8-0.6-7.2-0.6C15.2,57.7,7,60.6,0,65.5v3.8c7-5.4,15-8.6,24-8.6
-      		c20.7,0,37.6,16.8,37.6,37.6c0,10.1-4,19.4-10.5,26.2c0,0,0,0-0.1,0c0,0,0,0,0,0h4c0,0,0,0,0.1-0.1c0,0,0,0,0.1,0
-      		c5.9-7.1,9.5-16.2,9.5-26.1c0-1.1,0-2.3-0.2-3.4l28.6-7.7c2.5,7,9.2,12.1,17.1,12.1c10,0,18.1-8.1,18.1-18.2
-      		C128.5,71.1,120.3,63,110.3,63z M77.2,34.2C77.2,25.8,84,19,92.3,19c8.3,0,15.1,6.8,15.1,15.2c0,8.4-6.8,15.2-15.1,15.2
-      		C84,49.3,77.2,42.5,77.2,34.2z M27.2,18.2C27.2,9.8,34,3,42.3,3c8.3,0,15.1,6.8,15.1,15.2c0,8.4-6.8,15.2-15.1,15.2
-      		C34,33.3,27.2,26.5,27.2,18.2z M110.3,96.3c-8.4,0-15.2-6.8-15.2-15.2c0-8.4,6.8-15.2,15.2-15.2c8.3,0,15.1,6.8,15.1,15.2
-      		C125.5,89.5,118.7,96.3,110.3,96.3z"/>
-      </g>
-      <path id="pause-icon" fill="#A29060" d="M41.8,23.5H39V14h2.8V23.5z M46.3,14h-2.8v9.5h2.8V14z"/>
-      <g id="play" display="none">
-      	<polygon display="inline" fill="#A29060" points="47.9,18.7 39,13.5 39,23.8 47.9,18.7 39,13.5 39,23.8 	"/>
-      </g>
-      <g id="shuffle-icon_3_">
-      	<path fill="#A29060" d="M87.4,32.2h-1.8v-1.4h1.8c1.3,0,2.6,0.5,3.5,1.5c0,0.1-0.8,1.2-0.8,1.2C89.6,32.7,88.5,32.2,87.4,32.2z
-      		 M99.9,37.5l-3.1-1.9v1.3h-1c-1.1,0-2.1-0.5-2.8-1.4c0,0-0.7,1.2-0.8,1.2c0.9,1,2.2,1.5,3.5,1.5h1l0,1.1L99.9,37.5z M99.9,31.5
-      		l-3.1-1.9l0,1.1h-1c-1.6,0-3.2,0.8-4.1,2.3l-1.4,2.2c-0.6,1-1.7,1.6-2.9,1.6h-1.8v1.4h1.8c1.6,0,3.2-0.8,4.1-2.3l1.4-2.2
-      		c0.6-1,1.7-1.6,2.9-1.6h1l0,1.3L99.9,31.5z"/>
-      </g>
-      <g id="next">
-      	<g><polygon fill="#A29060" points="110,85.9 110,82.4 104,85.9 104,76.1 110,79.6 110,76.1 118.4,81 		"/></g>
-      </g>
-    </svg>
 
   </body>
   <script>
     "use strict";
-
-    $(document).ready(function(){
-
-      var menuOpen = false;
-      var toggleMenu = function(){
-
-        $('.trigger').on('click', function(e){
-          if( menuOpen == false){
-            menuOpen = true;
-            $('#music-menu').addClass("menu-open");
-          } else {
-            menuOpen = false;
-            $('#music-menu').removeClass("menu-open");
-          }
-        });
+    var menuOpen = false;
+    var menuCircuit = new Vivus('mySVG', {type: 'scenario-sync'}, function (obj) {
+      if( menuOpen == true){
+        obj.el.classList.add('finished');
+      } else {
+        obj.el.classList.remove('finished');
       }
-
-      toggleMenu();
-
     });
+
+    menuCircuit.stop();
+
+    var toggleMenu = function(){
+        if( menuOpen == false){
+          menuOpen = true;
+          menuCircuit.reset().play(20);
+        } else {
+          menuOpen = false;
+          menuCircuit.play(-20);
+        }
+    }
+
   </script>
 </html>
