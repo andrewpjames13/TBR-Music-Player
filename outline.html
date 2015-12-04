@@ -59,6 +59,7 @@
     var menuOpen = false;
     var menuCircuit = new Vivus('mySVG', {type: 'scenario-sync'}, function (obj) {
       if( menuOpen == true){
+        console.log(obj);
         obj.el.classList.add('finished');
       } else {
         obj.el.classList.remove('finished');

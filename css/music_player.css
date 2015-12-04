@@ -130,9 +130,9 @@ button svg{
 .menu-controls li {
 	width: 75px;
 	height: 75px;
-  border-radius: 50%;
-  border: 4px solid #a29060;
-  position: absolute;
+    border-radius: 50%;
+    border: 4px solid #a29060;
+    position: absolute;
 	-webkit-transform: scale3d(0.5, 0.5, 1);
 	transform: scale3d(0.5, 0.5, 1);
 	-webkit-transition: -webkit-transform 0.25s ease-out;
@@ -161,12 +161,31 @@ button svg{
   width: 20px;
 }
 
-#pause-icon:hover, #play-icon:hover, #shuffle-icon:hover{
-  /*border: 4px solid red;*/
-  /*transform: scale(2);*/
+.hide{
+  fill: red;
+  display: none;
+}
+
+.menu.menu-open .menu-controls li:hover #pause-icon{
   transition: all .2s ease-in-out;
   transform: translate(-50%,-50%) scale(1.1);
 }
+.menu.menu-open .menu-controls li:hover #shuffle-icon{
+  transition: all .2s ease-in-out;
+  transform: translate(-50%,-50%) scale(1.1);
+}
+.menu.menu-open .menu-controls li:hover #next-icon{
+  transition: all .2s ease-in-out;
+  transform: translate(-50%,-50%) scale(1.1);
+}
+.menu.menu-open .menu-controls li:hover #play-icon{
+  transition: all .2s ease-in-out;
+  transform: translate(-50%,-50%) scale(1.1);
+}
+/*.menu.menu-open .menu-controls li:hover svg{*/
+  /*transition: all .2s ease-in-out;*/
+  /*transform: translate(-50%,-50%) scale(1.1);*/
+/*}*/
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {

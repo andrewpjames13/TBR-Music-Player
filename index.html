@@ -24,8 +24,8 @@
       <ul class="menu-controls">
         <li>
           <a href="#">
-            <svg id="play-icon" viewBox="0 0 8.9 10.3">
-            	<polygon fill="#A29060" display="none" points="8.9,5.1 0,0 0,10.3 8.9,5.1 0,0 0,10.3 	"/>
+            <svg id="play-icon" viewBox="0 0 8.9 10.3" class="hide">
+            	<polygon fill="#A29060" points="8.9,5.1 0,0 0,10.3 8.9,5.1 0,0 0,10.3 	"/>
             </svg>
           </a>
           <a href="#">
@@ -54,7 +54,25 @@
   <script>
     "use strict";
 
+//    var pauseToPlay = function(){
+//      debugger
+////      var pauseIcon = document.querySelectorAll('#pause-icon');
+////      var playIcon = document.querySelectorAll('#play-icon');
+////      pauseIcon.el.classList.add('hide');
+////      playIcon.el.classList.remove('hide');
+//      console.log("test");
+////      $('#pause-icon').addClass('hide');
+//      $('#play-icon').removeClass('hide');
+//    }
+
+
     $(document).ready(function(){
+
+      $('#pause-icon').on('click', function(e){
+        console.log(e);
+        $('#pause-icon').addClass("hide");
+
+      });
 
       var menuOpen = false;
       var toggleMenu = function(){
