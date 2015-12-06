@@ -172,6 +172,8 @@ button svg{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%) scale(1);
+  -webkit-animation: fade-in-out 1s; /* Chrome, Safari, Opera */
+  animation: fade-in-out 1s;
 }
 
 #play-icon, #pause-icon{
@@ -196,13 +198,13 @@ button svg{
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes mymove {
-/*0%   {width: 20px;}*/
-100% {width: 30px;}
+@-webkit-keyframes fade-in-out {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 /* Standard syntax */
-@keyframes mymove {
-/*0%   {width: 20px;}*/
-100% {width: 30px;}
+@keyframes fade-in-out {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
 }
