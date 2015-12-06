@@ -62,7 +62,6 @@
     var songInt = 0;
     var nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
     nowPlaying.play();
-
     var pauseToPlay = function(){
      pauseIcon.setAttribute("class", "hide");
      playIcon.removeAttribute("class");
@@ -79,11 +78,13 @@
         nowPlaying.pause();
         nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
         nowPlaying.play();
+        nowPlaying.addEventListener("ended", nextSong);
       }else{
         songInt = 0;
         nowPlaying.pause();
         nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
         nowPlaying.play();
+        nowPlaying.addEventListener("ended", nextSong);
       }
     }
     var randomSongInt = 0;
@@ -98,6 +99,7 @@
       nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
       nowPlaying.play();
     }
+    nowPlaying.addEventListener("ended", nextSong);
 
     var menuOpen = false;
     var musicMenu = document.getElementById('music-menu');
