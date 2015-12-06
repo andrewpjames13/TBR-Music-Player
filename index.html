@@ -55,14 +55,18 @@
     "use strict";
     var pauseIcon = document.getElementById("pause-icon");
     var playIcon = document.getElementById('play-icon');
+    var tbrSongs = new Audio("songs/You Really Turn Me On.mp3");
+    tbrSongs.play();
 
     var pauseToPlay = function(){
      pauseIcon.setAttribute("class", "hide");
      playIcon.removeAttribute("class");
+     tbrSongs.pause();
     }
     var playToPause = function(){
      playIcon.setAttribute("class", "hide");
      pauseIcon.removeAttribute("class");
+     tbrSongs.play();
     }
 
     var menuOpen = false;
