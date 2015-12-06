@@ -11,7 +11,7 @@
     <div class="right-border"></div>
     <div class="bottom-border"></div>
     <div class="left-border"></div>
-    <nav id="music-menu" class="menu">
+    <nav id="music-menu" class="menu" onmouseover="stopTimeOut()">
       <button class="trigger" onclick="toggleMenu()">
         <svg viewBox="0 0 16.8 21.4">
         <g>
@@ -111,9 +111,18 @@
     var menuOpen = false;
     var musicMenu = document.getElementById('music-menu');
 
+    var myTimeOut;
     var looseFocusCloseMenu = function(){
-      musicMenu.className = "menu";
-      menuOpen = false;
+      myTimeOut = setTimeout(function(){
+        musicMenu.className = "menu";
+        menuOpen = false;
+      }, 800);
+    }
+
+    var stopTimeOut = function(){
+      if(menuOpen == true){
+        clearTimeout(myTimeOut);
+      }
     }
 
     var toggleMenu = function(){
