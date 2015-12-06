@@ -42,11 +42,11 @@
           	h1.2l0,1.5L16.8,2.2z"/>
           </svg>
         </a></li>
-        <li><a href="#">
+        <li><button onclick="nextSong()">
           <svg id="next-icon" viewBox="0 0 14.4 9.7">
           	<polygon fill="#A29060" points="6,9.7 6,6.2 0,9.7 0,0 6,3.5 6,0 14.4,4.8 		"/>
           </svg>
-          </a>
+        </button>
         </li>
       </ul>
     </nav>
@@ -55,18 +55,34 @@
     "use strict";
     var pauseIcon = document.getElementById("pause-icon");
     var playIcon = document.getElementById('play-icon');
-    var tbrSongs = new Audio("songs/You Really Turn Me On.mp3");
-    tbrSongs.play();
+    var tbrSongs = ["You Really Turn Me On", "Wildside", "Get After It", "Fallen"]
+    var songInt = 0;
+    var nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
+    nowPlaying.play();
 
     var pauseToPlay = function(){
      pauseIcon.setAttribute("class", "hide");
      playIcon.removeAttribute("class");
-     tbrSongs.pause();
+     nowPlaying.pause();
     }
     var playToPause = function(){
      playIcon.setAttribute("class", "hide");
      pauseIcon.removeAttribute("class");
-     tbrSongs.play();
+     nowPlaying.play();
+    }
+    var nextSong = function(){
+
+      if (songInt < tbrSongs.length - 1){
+        songInt += 1;
+        nowPlaying.pause();
+        nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
+        nowPlaying.play();
+      }else{
+        songInt = 0;
+        nowPlaying.pause();
+        nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
+        nowPlaying.play();
+      }
     }
 
     var menuOpen = false;
