@@ -61,6 +61,7 @@
     var tbrSongs = ["You Really Turn Me On", "Wildside", "Get After It", "Fallen"]
     var songInt = 0;
     var nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
+    nowPlaying.volume = 0.1;
     nowPlaying.play();
     var pauseToPlay = function(){
      pauseIcon.setAttribute("class", "hide");
@@ -78,13 +79,13 @@
         nowPlaying.pause();
         nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
         nowPlaying.play();
-        nowPlaying.addEventListener("ended", nextSong);
+        playNextWhenSongEnds();
       }else{
         songInt = 0;
         nowPlaying.pause();
         nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
         nowPlaying.play();
-        nowPlaying.addEventListener("ended", nextSong);
+        playNextWhenSongEnds();
       }
     }
     var randomSongInt = 0;
@@ -93,13 +94,19 @@
       if (randomSongInt == songInt){
         randomSongInt = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
         shuffleSong();
-      } else
-      songInt = randomSongInt;
-      nowPlaying.pause();
-      nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
-      nowPlaying.play();
+        playNextWhenSongEnds();
+      }else{
+        songInt = randomSongInt;
+        nowPlaying.pause();
+        nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
+        nowPlaying.play();
+        playNextWhenSongEnds();
+      }
     }
-    nowPlaying.addEventListener("ended", nextSong);
+    var playNextWhenSongEnds = function(){
+      nowPlaying.addEventListener("ended", nextSong);
+    }
+    playNextWhenSongEnds();
 
     var menuOpen = false;
     var musicMenu = document.getElementById('music-menu');
