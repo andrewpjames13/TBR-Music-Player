@@ -34,19 +34,22 @@
             </svg>
           </button>
         </li>
-        <li><a href="#">
-          <svg id="shuffle-icon" viewBox="0 0 16.8 11.5">
-          <path fill="#A29060" d="M2.1,3H0V1.3h2.1c1.6,0,3.1,0.6,4.2,1.8c0,0.1-0.9,1.5-0.9,1.5C4.6,3.6,3.4,3,2.1,3z
-          	 M16.8,9.3l-3.6-2.3v1.5H12c-1.3,0-2.5-0.6-3.3-1.6c0,0-0.9,1.4-0.9,1.5c1.1,1.2,2.6,1.8,4.2,1.8h1.2l0,1.4L16.8,9.3z M16.8,2.2
-          	L13.2,0l0,1.4H12c-1.9,0-3.8,1-4.8,2.7L5.6,6.6c-0.7,1.2-2,1.9-3.4,1.9H0v1.6h2.1c1.9,0,3.8-1,4.8-2.7l1.6-2.6C9.3,3.7,10.6,3,12,3
-          	h1.2l0,1.5L16.8,2.2z"/>
-          </svg>
-        </a></li>
-        <li><button onclick="nextSong()">
-          <svg id="next-icon" viewBox="0 0 14.4 9.7">
-          	<polygon fill="#A29060" points="6,9.7 6,6.2 0,9.7 0,0 6,3.5 6,0 14.4,4.8 		"/>
-          </svg>
-        </button>
+        <li>
+          <button onclick="shuffleSong()">
+            <svg id="shuffle-icon" viewBox="0 0 16.8 11.5">
+            <path fill="#A29060" d="M2.1,3H0V1.3h2.1c1.6,0,3.1,0.6,4.2,1.8c0,0.1-0.9,1.5-0.9,1.5C4.6,3.6,3.4,3,2.1,3z
+            	 M16.8,9.3l-3.6-2.3v1.5H12c-1.3,0-2.5-0.6-3.3-1.6c0,0-0.9,1.4-0.9,1.5c1.1,1.2,2.6,1.8,4.2,1.8h1.2l0,1.4L16.8,9.3z M16.8,2.2
+            	L13.2,0l0,1.4H12c-1.9,0-3.8,1-4.8,2.7L5.6,6.6c-0.7,1.2-2,1.9-3.4,1.9H0v1.6h2.1c1.9,0,3.8-1,4.8-2.7l1.6-2.6C9.3,3.7,10.6,3,12,3
+            	h1.2l0,1.5L16.8,2.2z"/>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button onclick="nextSong()">
+            <svg id="next-icon" viewBox="0 0 14.4 9.7">
+            	<polygon fill="#A29060" points="6,9.7 6,6.2 0,9.7 0,0 6,3.5 6,0 14.4,4.8 		"/>
+            </svg>
+          </button>
         </li>
       </ul>
     </nav>
@@ -71,7 +74,6 @@
      nowPlaying.play();
     }
     var nextSong = function(){
-
       if (songInt < tbrSongs.length - 1){
         songInt += 1;
         nowPlaying.pause();
@@ -83,6 +85,18 @@
         nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
         nowPlaying.play();
       }
+    }
+    var randomSongInt = 0;
+    var shuffleSong = function(){
+      randomSongInt = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+      if (randomSongInt == songInt){
+        randomSongInt = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+        shuffleSong();
+      } else
+      songInt = randomSongInt;
+      nowPlaying.pause();
+      nowPlaying = new Audio("songs/" + tbrSongs[songInt] + ".mp3");
+      nowPlaying.play();
     }
 
     var menuOpen = false;
