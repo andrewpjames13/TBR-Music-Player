@@ -111,10 +111,16 @@
     var menuOpen = false;
     var musicMenu = document.getElementById('music-menu');
 
+    var looseFocusCloseMenu = function(){
+      musicMenu.className = "menu";
+      menuOpen = false;
+    }
+
     var toggleMenu = function(){
         if( menuOpen == false){
           menuOpen = true;
           musicMenu.className = "menu menu-open";
+          musicMenu.addEventListener("mouseleave", looseFocusCloseMenu);
         } else {
           menuOpen = false;
           musicMenu.className = "menu";

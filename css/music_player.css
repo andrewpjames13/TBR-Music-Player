@@ -126,6 +126,14 @@ button svg{
   width: 15%;
 }
 
+#music-menu{
+  width: 254px;
+  height: 254px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  margin: 0;
+}
 .menu.menu-open .trigger{
   border: 2px solid #a29060;
 }
