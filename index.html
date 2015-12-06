@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>TBR Music Player</title>
     <link rel="stylesheet" href="css/music_player.css" media="screen" title="no title" charset="utf-8">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
   </head>
   <body>
     <div class="top-border"></div>
@@ -12,7 +12,7 @@
     <div class="bottom-border"></div>
     <div class="left-border"></div>
     <nav id="music-menu" class="menu">
-      <button class="trigger">
+      <button class="trigger" onclick="toggleMenu()">
         <svg viewBox="0 0 16.8 21.4">
         <g>
         	<rect x="0" y="5.9" fill="#A29060" width="4.6" height="15.5"/>
@@ -23,16 +23,16 @@
       </button>
       <ul class="menu-controls">
         <li>
-          <a href="#">
+          <button onclick="playToPause()">
             <svg id="play-icon" viewBox="0 0 8.9 10.3" class="hide">
             	<polygon fill="#A29060" points="8.9,5.1 0,0 0,10.3 8.9,5.1 0,0 0,10.3 	"/>
             </svg>
-          </a>
-          <a href="#">
+          </button>
+          <button onclick="pauseToPlay()">
             <svg id="pause-icon" viewBox="0 0 7.3 9.5">
               <path fill="#A29060" d="M2.8,9.5H0V0h2.8V9.5z M7.3,0H4.5v9.5h2.8V0z"/>
             </svg>
-          </a>
+          </button>
         </li>
         <li><a href="#">
           <svg id="shuffle-icon" viewBox="0 0 16.8 11.5">
@@ -53,43 +53,30 @@
   </body>
   <script>
     "use strict";
+    var pauseIcon = document.getElementById("pause-icon");
+    var playIcon = document.getElementById('play-icon');
 
-//    var pauseToPlay = function(){
-//      debugger
-////      var pauseIcon = document.querySelectorAll('#pause-icon');
-////      var playIcon = document.querySelectorAll('#play-icon');
-////      pauseIcon.el.classList.add('hide');
-////      playIcon.el.classList.remove('hide');
-//      console.log("test");
-////      $('#pause-icon').addClass('hide');
-//      $('#play-icon').removeClass('hide');
-//    }
+    var pauseToPlay = function(){
+     pauseIcon.setAttribute("class", "hide");
+     playIcon.removeAttribute("class");
+    }
+    var playToPause = function(){
+     playIcon.setAttribute("class", "hide");
+     pauseIcon.removeAttribute("class");
+    }
 
+    var menuOpen = false;
+    var musicMenu = document.getElementById('music-menu');
 
-    $(document).ready(function(){
+    var toggleMenu = function(){
+        if( menuOpen == false){
+          menuOpen = true;
+          musicMenu.className = "menu menu-open";
+        } else {
+          menuOpen = false;
+          musicMenu.className = "menu";
+        }
+    }
 
-      $('#pause-icon').on('click', function(e){
-        console.log(e);
-        $('#pause-icon').addClass("hide");
-
-      });
-
-      var menuOpen = false;
-      var toggleMenu = function(){
-
-        $('.trigger').on('click', function(e){
-          if( menuOpen == false){
-            menuOpen = true;
-            $('#music-menu').addClass("menu-open");
-          } else {
-            menuOpen = false;
-            $('#music-menu').removeClass("menu-open");
-          }
-        });
-      }
-
-      toggleMenu();
-
-    });
   </script>
 </html>
